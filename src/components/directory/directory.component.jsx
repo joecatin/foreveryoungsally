@@ -1,51 +1,29 @@
 import React from 'react';
 
 import MenuItem from '../menu-item/menu-item.component';
-
 import './directory.styles.scss';
+
+// const images = require.context ( '../../../public/images', true, /\.(png|jpe?g|svg)$/ )
+
+function importAll(r) { return r.keys().map(r); }
+
+const images = importAll(require.context('../../../public/images/', false, /\.(png|jpe?g|svg)$/))
+  .map((url, index) => {return {imageUrl: url, id: index, size: Math.round(Math.random()) ? "large" : "small"}})
+  .sort((a,b) => 0.5 - Math.random());
+
 
 class Directory extends React.Component {
   constructor() {
     super();
-
-    this.state = {
-      sections: [
-        {
-          title: 'hats',
-          imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-          id: 1
-        },
-        {
-          title: 'jackets',
-          imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-          id: 2
-        },
-        {
-          title: 'sneakers',
-          imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-          id: 3
-        },
-        {
-          title: 'womens',
-          imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-          size: 'large',
-          id: 4
-        },
-        {
-          title: 'mens',
-          imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
-          size: 'large',
-          id: 5
-        }
-      ]
-    };
+    console.log(images)
+    this.state = { images };
   }
 
   render() {
     return (
       <div className='directory-menu'>
-        {this.state.sections.map(({ title, imageUrl, id, size }) => (
-          <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+        {this.state.images.map(({ imageUrl, id, size }) => (
+          <MenuItem key={id} imageUrl={imageUrl} size={size} />
         ))}
       </div>
     );
