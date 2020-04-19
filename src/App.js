@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
+import Scroll from './components/scroll/scroll.component.jsx'
 
 // import HomePage from './pages/homepage/homepage.component';
 import Directory from './components/directory/directory.component';
@@ -10,9 +11,11 @@ function App() {
   return (
     <div>
       <Header />
-      <Switch>
-        <Route exact path='/' component={Directory} />
-      </Switch>
+      <Scroll>
+        <Switch>
+          <Route exact path='/' component={Directory} />
+        </Switch>            
+      </Scroll>       
     </div>
   );
 }
