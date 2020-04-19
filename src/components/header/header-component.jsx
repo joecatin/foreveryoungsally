@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './header.styles.scss';
-import { ReactComponent as Logo } from '../../Sally.svg';
+import sally from '../../Sally.png';
 
 const birth = new Date('1980-04-19'); 
 const today = new Date(); 
@@ -20,7 +20,7 @@ class Header extends Component {
         return (
             <div className='header'>   
                 <Link to='/'>
-                    <Logo className='logo-container' />
+                    <img className='logo-container' src={sally} alt="logo"/>
                 </Link>
                 <div className='options'>
                     <Link className='option' to='/'>
