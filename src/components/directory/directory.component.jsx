@@ -3,12 +3,10 @@ import React from 'react';
 import MenuItem from '../menu-item/menu-item.component';
 import './directory.styles.scss';
 
-// const images = require.context ( '../../../public/images', true, /\.(png|jpe?g|svg)$/ )
-
 function importAll(r) { return r.keys().map(r); }
 
 const images = importAll(require.context('../../../public/images/', false, /\.(png|jpe?g|svg)$/))
-  .map((url, index) => {return {imageUrl: url, id: index, size: Math.round(Math.random()) ? "large" : "small"}})
+  .map((url, index) => {return {imageUrl: url, id: index, size: Math.round(Math.random()) ? 'large' : 'small'}})
   .sort((a,b) => 0.5 - Math.random());
 
 
