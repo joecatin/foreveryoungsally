@@ -20,19 +20,12 @@ class Directory extends React.Component {
   }
 
   render() {
+
     return (
         <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
           {this.state.images.map(({ imageUrl, id, size }) => ( <MenuItem key={id} imageUrl={imageUrl} size={size} /> ))}
         </Masonry>
 
-
-      // <div className='directory-menu'>
-      //   <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
-      //     {this.state.images.map(({ imageUrl, id, size }) => (
-      //       <MenuItem key={id} imageUrl={imageUrl} size={size} />
-      //       ))}
-      //   </Masonry>        
-      // </div>
     );
   }
 }

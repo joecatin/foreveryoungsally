@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './header.styles.scss';
 import sally from '../../Sally.png';
 
@@ -19,14 +19,8 @@ class Header extends Component {
 
         return (
             <div className='header'>   
-                <Link to='/'>
-                    <img className='logo-container' src={sally} alt="logo"/>
-                </Link>
-                <div className='options'>
-                    <Link className='option' to='/'>
-                        <h1>{greeting}</h1>
-                    </Link>
-                </div>
+                <img className='logo-container' src={sally} alt="logo"/>
+                <h1 className='option'>{greeting}</h1>
             </div>            
         )
     }
