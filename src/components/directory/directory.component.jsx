@@ -1,7 +1,9 @@
 import React from 'react';
-
+import Masonry from 'react-masonry-css'
 import MenuItem from '../menu-item/menu-item.component';
 import './directory.styles.scss';
+
+const breakpointColumnsObj = { default: 3, 700: 2, 500: 1};
 
 function importAll(r) { return r.keys().map(r); }
 
@@ -19,11 +21,18 @@ class Directory extends React.Component {
 
   render() {
     return (
-      <div className='directory-menu'>
-        {this.state.images.map(({ imageUrl, id, size }) => (
-          <MenuItem key={id} imageUrl={imageUrl} size={size} />
-        ))}
-      </div>
+        <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
+          {this.state.images.map(({ imageUrl, id, size }) => ( <MenuItem key={id} imageUrl={imageUrl} size={size} /> ))}
+        </Masonry>
+
+
+      // <div className='directory-menu'>
+      //   <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
+      //     {this.state.images.map(({ imageUrl, id, size }) => (
+      //       <MenuItem key={id} imageUrl={imageUrl} size={size} />
+      //       ))}
+      //   </Masonry>        
+      // </div>
     );
   }
 }
