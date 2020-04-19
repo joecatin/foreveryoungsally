@@ -19,8 +19,8 @@ class Header extends Component {
 
         return (
             <div className='header'>   
-                <img className='logo-container' src={sally} alt="logo"/>
-                <h1 className='option'>{greeting}</h1>
+                <img className='logo' src={sally} alt="logo"/>
+                <h1 className='greeting'>{greeting}</h1>
             </div>            
         )
     }
